@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'info.solidsoft.pitest' version '1.7.0'
+}
+
+group 'com.mosley'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+pitest {
+    //adds dependency to org.pitest:pitest-junit5-plugin and sets "testPlugin" to "junit5"
+    junit5PluginVersion = '0.15'    //or 0.14 for Junit Jupiter 5.7 (JUnit Platform 1.7)
+    // ...
+}
+
+test {
+    useJUnitPlatform()
+}
